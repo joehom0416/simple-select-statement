@@ -1,4 +1,4 @@
-## Problem:
+# Problem
 ### SQL to end user
 I am building a web application which allow end user to customise the page, grid and report by amending the SQL. It was requested by business people.
 
@@ -43,7 +43,14 @@ There are various of operators supported in simple select statement.
 |like '%x'| ew()| name.ew('n'|
 
 
-
+## Alias
+In SSS, use @ to denote alias, example
+```
+students.[name@'student name'
+```
+this will transpile to sql
+```sql
+SELECT name as 'student name' FROM students
 
 
 
