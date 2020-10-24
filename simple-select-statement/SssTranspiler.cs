@@ -37,19 +37,16 @@ namespace simple_select_statement
 
                 index++;
             };
-
-            Console.WriteLine("order:" + string.Join(",", _simpleOrders));
-            //string[] where = sss.Split("|");
-            Console.WriteLine("where:" + string.Join(",", _simplewheres));
+            // debug purpose:
+            //Console.WriteLine("order:" + string.Join(",", _simpleOrders));
+            //Console.WriteLine("where:" + string.Join(",", _simplewheres));
 
         }
 
 
         public string TranspileToSql()
         {
-            
-
-            return $"{processSelect()} {processWhere()} {ProcessOrder()}";
+         return processAlias($"{processSelect()} {processWhere()} {ProcessOrder()}");
         }
 
         private string processSelect()
@@ -104,6 +101,18 @@ namespace simple_select_statement
                     case string part when part.Contains("nin("):
                         result += $" NOT IN ({getStringBetween(parts[index], "(", ")")})";
                         break;
+                    case string part when part.Contains("like("):
+                        // like
+                        result += $" LIKE %{getStringBetween(parts[index],"(",")")}%";
+                        break;
+                    case string part when part.Contains("sw("):
+                        //start with
+                        result += $" LIKE {getStringBetween(parts[index], "(", ")")}%";
+                        break;
+                    case string part when part.Contains("ew("):
+                        //end with
+                        result += $" LIKE %{getStringBetween(parts[index], "(", ")")}";
+                        break;
                     case string part when part.Contains("and"):
                         result += " AND ";
                         break;
@@ -136,7 +145,7 @@ namespace simple_select_statement
 
         private string processAlias(string statement)
         {
-            return statement.Replace("@"," AS ")
+            return statement.Replace("@", " AS ");
         } 
 
     }
