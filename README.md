@@ -6,10 +6,10 @@ In some reason, the system cannot set the 'read-only-access' permission to make 
 
 I understand exposing the entire SQL database structure to end users is not a good idea, it will make our life difficult.
 
-# Simple Select Statement
+# The Concept of Simple Select Statement
 Therefore, I am redesign a simple select statement to end user and named it as "simple select statement". Which is a mutated version of SQL.
 
-Since the query is use in XML file, I avoid use the symbol like &, <, >.
+Since the query is use in HTML file (XML based), I avoid use the symbol like &, <, >.
 
 The structure of the statement is very simple:
 ```
