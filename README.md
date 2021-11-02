@@ -46,7 +46,7 @@ There are various of operators supported in simple select statement.
 ## Alias
 In SSS, use @ to denote alias, example
 ```
-students.[name@'student name'
+students.[name@'student name]'
 ```
 this will transpile to sql
 ```sql
