@@ -1,6 +1,6 @@
 # Problem
 ### SQL to end user
-I am building a html template engine (XML based) which allow end user to customise the page with data query language.
+I am building a html template engine (web component based) which allow end user to customise the page with data query language.
 
 In some reason, the system cannot set the 'read-only-access' permission to make the system safe, we have to control it from programming level. Imagine that one of your client try to execute the delete statement, it absolutely is a big problem. 
 
